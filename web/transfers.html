@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trasnfers</title>
+    <link rel="shortcut icon" href="Assets/LOGOS/LOGO_orange.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Styles/transfers.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="../Assets/LOGO_W/National_Bank_WV.png" alt="logo_national_bank_image">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon text-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                            </svg></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav d-flex justify-content-between container-fluid">
+                            <div id="navbarLinks" class="d-flex">
+                                <a class="nav-link" href="accounts.html">Accounts</a>
+                                <a class="nav-link" href="cards.html">Cards</a>
+                                <a class="nav-link" href="#">Transfers</a>
+                            </div>
+                            <div class="d-flex me-5">
+                                <a class="nav-link text-danger" href="../login.html" @click="logOut">Log out</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="transfers">
+
+            </div>
+            <div class="newTransaction">
+                <form>
+                    <fieldset>
+                        <div class="mb-3">
+                            <p>Transfer type</p>
+                            <select v-model="transferType" name="color" id="">
+                                <option value="ownAccount">Own account</option>
+                                <option value="thirdAccounts">Third party accounts</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <p>Transfering from</p>
+                            <select v-model="originAccount" name="type" id="">
+                                <option v-for="account in accounts" :value="account.number">{{account.number}}</option>
+                            </select>
+                        </div>
+                        <div class="transactionElse">
+                            <div class="mb-3">
+                                <label class="form-label">Account number</label>
+                                <input v-model="accountNumberDestiny" type="input" class="form-control"
+                                    id="accountNumber" placeholder="VIN">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Amount</label>
+                                <input v-model="ammount" type="input" class="form-control" id="amountInput"
+                                    placeholder="$ ">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <input v-model="description" type="input" class="form-control" id="descriptionInput"
+                                    placeholder="Description ">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" @click="sendTransaction">Transfer</button>
+                    </fieldset>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./Data/transfers.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

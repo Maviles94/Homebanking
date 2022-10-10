@@ -1,0 +1,72 @@
+/* NORMALIZE */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+/* NAVBAR */
+.navbar-brand img {
+    height: 5rem;
+    width: auto;
+};
+.navbar-brand {
+    color: rgb(70, 43, 147);
+}
+.nav-link {
+    text-decoration: none;
+    color: rgb(70, 43, 147);
+}
+
+.index-welcome h1{
+    font-size: 4rem;
+    
+}
+.index-welcome img{
+    height: 300px;
+    width: auto;
+}
+h1{
+    text-align: center;
+    color: rgb(70, 43, 147);
+}
+.indexImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.indexImg img{
+    padding-top: 5rem;
+    width: 300px;
+    height: auto;
+}
+p{
+    text-align: center;
+    font-style: italic;
+    font-weight:lighter;
+}
+.buttonLog{
+    display:flex ;
+    justify-content: center;
+    
+}
+.buttonLog button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: rgb(70, 43, 147);
+    width: 5rem;
+    border: 0;
+    border-radius: 15px;
+    padding: 15px;
+    color:rgb(116, 69, 234);
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+.buttonLog a {
+    color: #FFFFFF;
+text-decoration: none;
+width: 12rem;
+}

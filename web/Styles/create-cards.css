@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+}
+.navbar-brand img {
+    height: 5rem;
+    width: auto;
+}
+
+.mainLeft{
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 20rem;
+height: auto;
+border: 2px solid rgb(70, 43, 147);
+border-radius: 15px;
+box-shadow: 5px 5px rgb(135, 99, 235);
+padding-bottom: 1rem;
+}
+.mainLeft fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+[v-cloak]{
+    display: none !important;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Assets/LOGOS/LOGO_violet.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="login.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="imgLog">
+            <img src="./Assets/LOGO_W/LOGO_white_transparent.png" alt="">
+        </div>
+        <div class="login-page">
+            <div class="form">
+                <form class="register-form" v-if="register">
+                    <input v-model="name" type="text" placeholder="name" />
+                    <input v-model="lastName" type="text" placeholder="last name" />
+                    <input v-model="password" type="password" placeholder="password" />
+                    <input v-model="email" type="text" placeholder="email address" />
+                    <input type="button"  value="SING UP" @click="signUp" class="signUp">
+                    <p class="message">Already registered? <a href="#" @click="showForm" >Sign In</a></p>
+                </form>
+                <form class="login-form" v-if="loginForm">
+                    <input v-model="email" type="text" placeholder="e-mail" />
+                    <input v-model="password" type="password" placeholder="password" />
+                    <input type="button" value="LOGIN" @click="login"  class="signUp">
+                    <p class="message">Not registered? <a href="#" @click="showForm">Create an account</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>

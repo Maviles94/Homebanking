@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Banking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="./Styles/styles.css">
+    <link rel="shortcut icon" href="../Assets/LOGOS/LOGO_violet.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/db55518b9d.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/db55518b9d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="../Assets/LOGO_W/National_Bank_WV.png" alt="logo_national_bank_image">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                            </svg></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav d-flex justify-content-between container-fluid">
+                            <div class="d-flex ">
+                                <a class="nav-link" href="#">Accounts</a>
+                                <a class="nav-link" href="cards.html">Cards</a>
+                                <a class="nav-link" href="transfers.html">Transfers</a>
+                            </div>
+                            <div class="d-flex me-5">
+                                <a class="nav-link text-danger" href="../login.html" @click="logOut">Log out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- MAIN INDEX -->
+
+
+        <main>
+            <div class="title">
+                <h2>Hi, {{name.name}} {{name.lastName}}</h2>
+                <p>Here you can find all your accounts</p>
+            </div>
+            <div class="contendor">
+                <div class="container divCards">
+                    <div id="accountCard" v-for="account in accounts">
+                        <p>Account: {{account.number}}</p>
+                        <p>Date: {{account.creationDate}}</p>
+                        <p>$ {{account.balance}}</p>
+                        <a :href="'account.html?id='+account.id">More Details</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-trash3-fill" viewBox="0 0 16 16" @click="deleteAccount(account)">
+                        <path
+                            d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                    </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="createAccount" v-if="accounts.length < 3">
+                <p>Don't have any accounts? Create a new account, just click on the button below!</p>
+                <button @click="createAccount">Create New Account</button>
+                <select v-model="inputType">
+                    <option value="SAVINGS">Savings</option>
+                    <option value="CURRENT">Current</option>
+                </select>
+            </div>
+
+
+            <!-- LOANS -->
+            <div class="loanCard">
+                <div class="textLoan">
+                    <h2 class="mt-3">Your Loans</h2>
+                    <p>
+                        A personal loan might be right for you if you want to fund a big expense or if you want to
+                        consolidate debt. Personal loans may come with lower interest rates than credit cards, so
+                        funding a big expense or project with a personal loan could save you thousands of dollars on
+                        interest payments.
+                    </p>
+                </div>
+                <div>
+                    <div v-if="loans.length >= 1" v-for="loan in loans" class="card" style="width: 18rem;">
+                        <div class="card-header bg-warning text-center fw-bold fs-4 ">
+                            {{loan.name}}
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Amount: ${{loan.amount}}</li>
+                            <li class="list-group-item">Payments: {{loan.payment}}</li>
+                        </ul>
+                    </div>
+                    <div v-else>
+                        <h3>There are no loans to show</h3>
+                    </div>
+                </div>
+                <div class="buttonApply">
+                    <a href="./loan-application.html">Apply</a>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./Data/accounts.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

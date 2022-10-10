@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.navbar-brand img {
+    height: 5rem;
+    width: auto;
+}
+.divTable{
+    display: flex;
+    justify-content: center;
+}
+th {
+    text-align: center !important;
+    padding: 1vh .7vw;
+    font-size: 15px;
+    padding: 2vh 1vw;
+    color: rgb(204, 188, 247);
+    background-color: rgb(70, 43, 147);
+}
+
+td {
+    text-align: center;
+    padding: 1vh .7vw;
+    font-size: 15px;
+    color: rgb(214, 199, 255);
+    border: 2px solid rgb(135, 99, 235);
+    background-color: rgb(70, 43, 147);
+}
+
+td a {
+    text-decoration: none;
+    color: rgb(135, 99, 235);
+}
+
+td a:hover {
+    text-decoration: none;
+    color: beige;
+}
+[v-cloak]{
+    display: none !important;
+}

@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    min-height: 100vh;
+}
+.navbar-brand img {
+    height: 5rem;
+    width: auto;
+}
+.navbar-toggler *{
+    color: black !important;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+.newTransaction{
+    display: flex;
+    justify-content: center;
+    width: 25rem;
+    height: 30rem;
+    border: 2px solid #888888;
+    border-radius: 15px;
+    box-shadow: 3px 3px #888888;
+}
+.newTransaction fieldset{
+    width: 20rem ;
+    height: 10rem;
+}
+[v-cloak]{
+    display: none !important;
+}
